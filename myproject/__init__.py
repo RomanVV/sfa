@@ -16,3 +16,9 @@ app.config['SQLACLHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 Migrate(app, db)
+
+from myproject.cars.views import cars_blueprint
+from myproject.owners.views import owners_blueprint
+
+app.register_blueprint(cars_blueprint, url_prefix='/cars')
+app.register_blueprint(owners_blueprint, url_prefix='/owners')
